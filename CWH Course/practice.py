@@ -1,3 +1,5 @@
+#All the programs are written here for practice
+
 n = int(input("Enter number: "))
 
 def recur(n):
