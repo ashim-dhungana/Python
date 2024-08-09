@@ -1,6 +1,11 @@
 #walrus operator
+
 if (n := len([1,2,3,4,5])) > 3:
     print(f"List is too long ({n} elements, expected <=3)")
+
+numbers = [1,2,3,4,5]
+while (num := len(numbers)) > 0:
+    print(numbers.pop())
 
 
 #Match Case (Switch Case)
