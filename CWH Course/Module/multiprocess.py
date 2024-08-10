@@ -12,13 +12,11 @@ url = "https://picsum.photos/2000/3000"
 
 pros = []
 
-for i in range(5):
-    
-    # downloadFile(url,i)
-    
+for i in range(5):   
+    # downloadFile(url,i)   
     p = multiprocessing.Process(target=downloadFile,args=[url,i])
     p.start()
     pros.append(p)
     
-for i in pros:
-    i.join()
+for p in pros:
+    p.join()
