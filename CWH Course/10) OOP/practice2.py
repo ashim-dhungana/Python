@@ -11,6 +11,8 @@ class Employee:
         self.increment = ((salary/self.salary) -1)*100
 
 e = Employee()
-print(e.salaryAfterIncrement)
-e.salaryAfterIncrement = 280.8
+new_salary = e.salaryAfterIncrement
+print(new_salary)
+
+e.salaryAfterIncrement = new_salary
 print(e.increment)

@@ -14,5 +14,5 @@ a = Employee()
 b = Programmer()
 
 a.show("Tony","Python")
-b.show("Steve","Java")
 b.showLanguage()
+b.show("Steve","Java")
