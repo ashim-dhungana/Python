@@ -4,7 +4,7 @@
 <!-- Forms -->
 <div class="container my-3">
     <form action="/" method="post">
-        <h2>Add a Todo</h2>
+        <h2>Update Todo</h2>
         <div class="mb-3">
             <label for="title" class="form-label">Todo Title</label>
             <input type="text" class="form-control" name="title" id="title">
@@ -13,52 +13,11 @@
             <label for="desc" class="form-label">Todo Description</label>
             <input type="text" class="form-control" name="desc" id="desc">
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <button type="submit" class="btn btn-dark">Update</button>
     </form>
 </div>
 
 
-<!-- Table -->
-<div class="container my-3">
-
-    {% if allTodo|length==0 %}
-    <div class="alert alert-dark" role="alert">
-        A simple dark alert—check it out!
-    </div>
-    {% else %}
-    <table class="table">
-        <h3>Your Todo</h3>
-        <thead>
-            <tr>
-                <th scope="col">SNo</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Date Created</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for todo in allTodo %}
-            <tr>
-                <th scope="row">{{loop.index}}</th>
-                <td>{{todo.title}}</td>
-                <td>{{todo.desc}}</td>
-                <td>{{todo.date_created}}</td>
-                <td>
-                    <a href="/update/{{todo.sno}}" type="button"
-                        class="btn btn-outline-dark btn-sm mx-2">Update</button>
-                        <a href="/delete/{{todo.sno}}" type="button"
-                            class="btn btn-outline-dark btn-sm mx-1">Delete</button>
-
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
-
-
-</div>
 
 <!-- Optional JavaScript; choose one of the two! -->
 

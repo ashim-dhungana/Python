@@ -6,6 +6,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 db = SQLAlchemy(app)
 
+
 class Todo(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
@@ -25,17 +26,16 @@ def main():
         todo = Todo(title=title, desc=desc)
         db.session.add(todo)
         db.session.commit()
-    
+
     allTodo = Todo.query.all()
 
-    return render_template('index.html',allTodo=allTodo)
+    return render_template('index.html', allTodo=allTodo)
 
 
-@app.route('/update')
-def update():
-    allTodo = Todo.query.all()
-    print(allTodo)
-    return 'This is a page for products'
+@app.route('/update/<int:sno>')
+def update(sno):
+    todo = Todo.query.filter_by(sno=sno).first()
+    return render_template('update.html', todo= todo)
 
 
 @app.route('/delete/<int:sno>')
