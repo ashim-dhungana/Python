@@ -5,4 +5,8 @@ app = Flask(__name__)
 def main():
     return render_template('index.html')
 
+@app.route("/bootstrap")
+def bootstrap():
+    return render_template('bootstrap.html')
+
 app.run(debug=True)
