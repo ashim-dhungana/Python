@@ -3,7 +3,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('index2.html')
+    return render_template('index.html')
+
+@app.route("/index.html")
+def home():
+    return render_template('index.html')
 
 @app.route("/about.html")
 def about():
