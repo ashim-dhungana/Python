@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:database123@localhost:3306/flask_tutorial'
 
 db = SQLAlchemy(app)
@@ -38,12 +39,17 @@ def about():
 
 @app.route("/contact.html", methods = ['GET','POST'])
 def contact():
-    if (request.method=='POST'):
+    if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
         phone = request.form.get('phone')
         message = request.form.get('message')
-        
+
+        entry = Contacts(name=name, phone_num=phone, msg=message, email=email)
+
+        db.session.add(entry)
+        db.session.commit()
+
     return render_template('contact.html')
 
 
